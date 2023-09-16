@@ -1,8 +1,58 @@
 body {
-    background: magenta;
+    background:blanchedalmond;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-h1 {
-    background: green;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.Home{
+    text-align: center;
+    color:tomato;
 }
+
+.Cadastro {
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+    display: block;
+
+}
+
+p{
+    text-align: center;
+    text-transform: uppercase;
+    color: slateblue;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover{
+    background-color: purple;
+  }

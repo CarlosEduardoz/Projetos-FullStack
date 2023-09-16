@@ -1,46 +1,29 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const port = 5000;
 
-const path = require('path')
-const basePath = path.join(__dirname, 'templates')
+app.use(express.static(__dirname + '/public'));
 
-// receber informações do corpo da requisição
-app.use(express.urlencoded({
-    extended: true
-}))
+app.use(express.urlencoded({ extended: true }));
 
-// converter em objeto
-app.use(express.json())
-
-// utilizar arquivos estáticos como CSS
-app.use(express.static('public'))
-
-app.post('/usuarios/enviar', (req, res) => {
-    const nome = req.body.nome
-    const email = req.body.email
-
-    console.log(`
-        Usuário: ${nome}
-        Email: ${email}
-    `)
-
-    res.redirect('/')
-})
-
-app.get('/usuarios/cadastrar', (req, res) => {
-    res.sendFile(`${basePath}/form.html`)
-})
-
-app.get('/usuarios/:id', (req, res) => {
-    const id = req.params.id
-
-    console.log(`Usuário: ${id}`)
-
-    res.sendFile(`${basePath}/usuarios.html`)
-})
 
 app.get('/', (req, res) => {
-    res.sendFile(`${basePath}/index.html`)
-})
+  res.sendFile(__dirname + '/templates/home.html');
+});
 
-app.listen(3000)
+
+app.get('/cadastro/:id', (req, res) => {
+  const userId = req.params.id;
+  res.sendFile(__dirname + '/templates/cadastro.html');
+});
+
+app.post('/processar', (req, res) => {
+  const { nome, email } = req.body;
+
+  res.send(`Nome: ${nome} , Email: ${email}`);
+  
+});
+
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
