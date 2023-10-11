@@ -1,0 +1,9 @@
+<h1>Home  Handlebars</h1>
+<p>Seja Bem-vindo(a) usuário {{usuario.nome}}</p>
+<p>Tenho certeza que você é um ótimo {{usuario.profissao}}, mesmo tendo ainda {{usuario.idade}} anos.</p>
+
+{{#if auth}}
+    <a href="/dashboard">Acessar a dashboard</a>
+{{else}}
+    <p>Você ainda não está logado. Faça login ou cadastre-se!</p>
+{{/if}}
